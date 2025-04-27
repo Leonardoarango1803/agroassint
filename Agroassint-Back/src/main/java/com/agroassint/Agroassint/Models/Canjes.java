@@ -1,14 +1,15 @@
 package com.agroassint.Agroassint.Models;
 
-
 import jakarta.persistence.*;
-import lombok.Data;
-
-import java.util.Date;
+import lombok.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "canjes")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Canje {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,8 +23,6 @@ public class Canje {
     @JoinColumn(name = "id_producto")
     private Producto producto;
 
-    private Integer puntos_usados;
-
-    @Temporal(TemporalType.DATE)
-    private Date fecha_canje;
+    private Integer puntosUsados;
+    private LocalDate fechaCanje;
 }

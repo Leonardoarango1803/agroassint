@@ -1,13 +1,15 @@
 package com.agroassint.Agroassint.Models;
 
 import jakarta.persistence.*;
-import lombok.Data;
-
-import java.util.Date;
+import lombok.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "descuentos_tardanza")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class DescuentoTardanza {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,10 +19,9 @@ public class DescuentoTardanza {
     @JoinColumn(name = "id_empleado")
     private Empleado empleado;
 
-    @Temporal(TemporalType.DATE)
-    private Date fecha;
+    private LocalDate fecha;
+    private Double montoDescontado;
 
-    private Double monto_descontado;
-
+    @Column(length = 255)
     private String motivo = "Descuento por 3 tardanzas acumuladas";
 }

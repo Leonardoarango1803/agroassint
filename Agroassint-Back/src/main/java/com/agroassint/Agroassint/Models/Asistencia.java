@@ -1,14 +1,16 @@
 package com.agroassint.Agroassint.Models;
 
 import jakarta.persistence.*;
-import lombok.Data;
-
+import lombok.*;
+import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
 
 @Entity
 @Table(name = "asistencias")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Asistencia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,14 +20,12 @@ public class Asistencia {
     @JoinColumn(name = "id_empleado")
     private Empleado empleado;
 
-    @Temporal(TemporalType.DATE)
-    private Date fecha;
-
-    private LocalTime hora_entrada;
-    private LocalTime hora_salida;
+    private LocalDate fecha;
+    private LocalTime horaEntrada;
+    private LocalTime horaSalida;
 
     @Enumerated(EnumType.STRING)
-    private TipoAsistencia tipo_asistencia = TipoAsistencia.normal;
+    private TipoAsistencia tipoAsistencia = TipoAsistencia.normal;
 
     public enum TipoAsistencia {
         normal, tardanza, falta

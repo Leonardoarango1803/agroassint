@@ -1,25 +1,25 @@
 package com.agroassint.Agroassint.Models;
 
 import jakarta.persistence.*;
-import lombok.Data;
-
-import java.util.Date;
+import lombok.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "horas_trabajadas")
 @Data
-public class HorasTrabajadas {
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class HoraTrabajada {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "id_empleado")
-    private Empleado empleado;
+    private Empleados empleado;
 
-    @Temporal(TemporalType.DATE)
-    private Date fecha;
-
-    private Double horas_normales;
-    private Double horas_extras;
+    private LocalDate fecha;
+    private Double horasNormales;
+    private Double horasExtras;
 }
