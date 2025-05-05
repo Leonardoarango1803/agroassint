@@ -1,0 +1,29 @@
+.futuristic-navbar {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    border-radius: 12px;
+    padding: 0.8rem 1rem;
+  }
+  
+  .brand-text {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #00ffae;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px #00ffae;
+  }
+  
+  .futuristic-link {
+    color: #ffffff;
+    transition: all 0.3s ease;
+  }
+  
+  .futuristic-link:hover {
+    color: #00ffae;
+    transform: scale(1.1);
+    text-shadow: 0 0 5px #00ffae;
+  }
+  
+  .navbar-brand img {
+    filter: drop-shadow(0 0 5px #00ffae);
+  }
+  

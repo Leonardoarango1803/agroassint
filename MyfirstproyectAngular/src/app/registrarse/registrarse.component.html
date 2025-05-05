@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>AgroAssistence</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    AgroAssistence
+  </header>
+
+  <section class="background-section">
+    <div class="cuadro-transparente">
+      <div class="mensaje-deslizante">¡Bienvenido! Regístrate para comenzar</div>
+      <form action="./submit_page" method="get">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" id="nombre" name="nombre" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="apellido" class="form-label">Apellido</label>
+          <input type="text" id="apellido" name="apellido" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="usuario" class="form-label">Usuario</label>
+          <input type="text" id="usuario" name="usuario" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="contrasena" class="form-label">Contraseña</label>
+          <input type="password" id="contrasena" name="contrasena" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="telefono" class="form-label">Teléfono</label>
+          <input type="text" id="telefono" name="telefono" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="correo" class="form-label">Correo electrónico (opcional)</label>
+          <input type="email" id="correo" name="correo" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-enviar w-100">Registrarse</button>
+      </form>
+    </div>
+  </section>
+
+</body>
+</html>

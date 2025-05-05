@@ -1,0 +1,45 @@
+header{
+    background-color: green;
+    padding: 5px;
+}
+.menu-izquierdo { 
+    top: 80%;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #f0f0f0;
+    padding: 20px 10px;
+    margin: 0;
+    display: flex;
+    list-style: none; 
+    flex-direction: column;
+    align-items: flex-start; 
+    gap: 10px; 
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1); 
+  }
+  
+  .titulo-menu {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .opcion-menu {
+    width: 100%;
+  }
+  
+  .opcion-menu a {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .opcion-menu a:hover {
+    background-color: #ddd;
+  }
