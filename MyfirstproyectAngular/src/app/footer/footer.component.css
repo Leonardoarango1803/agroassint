@@ -1,0 +1,151 @@
+  .agrovision-footer {
+  background-color: #ffffff;
+  color: #333333;
+  padding: 2.5rem 0;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.05);
+
+  .footer-heading {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 1.2rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+
+    &::after { /*Lineas debajo de barrera*/
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background-color: #3498db;
+    }
+  }
+
+  .footer-contact { /*estilos de logos redes sociales*/
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.6rem;
+
+      .contact-icon {
+        font-size: 1.1rem;
+        color: #3498db;
+      }
+
+      a {
+        color: #4a5568;
+        text-decoration: none;
+        transition: color 0.2s;
+
+        &:hover {
+          color: #3498db;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 0.6rem;
+
+      a {
+        color: #4a5568;
+        text-decoration: none;
+        transition: all 0.2s;
+        display: inline-block;
+        padding: 0.1rem 0;
+
+        &:hover {
+          color: #3498db;
+          transform: translateX(3px);
+        }
+      }
+    }
+  }
+
+  .footer-platform {
+    .platform-title {
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+    }
+
+    .platform-text {
+      color: #4a5568;
+      margin-bottom: 0;
+    }
+
+    .btn-login {
+      background-color: #3498db;
+      border-color: #3498db;
+      padding: 0.5rem 1.5rem;
+      font-weight: 500;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: #2980b9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  .footer-bottom {
+    .copyright-text {
+      color: #7f8c8d;
+      font-size: 0.9rem;
+      margin-bottom: 0;
+
+      a {
+        color: #7f8c8d;
+        text-decoration: none;
+
+        &:hover {
+          color: #3498db;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .social-links {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+
+      .social-text {
+        color: #7f8c8d;
+        font-size: 0.9rem;
+        margin-right: 0.5rem;
+      }
+
+      .social-icon {
+        color: #ffffff;
+        background-color: #3498db;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: bold;
+        transition: all 0.3s;
+
+        &:hover {
+          background-color: #2980b9;
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+}

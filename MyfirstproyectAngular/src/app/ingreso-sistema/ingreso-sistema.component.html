@@ -1,9 +1,29 @@
-<Header><h1>Te damos la bienvenida usuario</h1></Header>
-<ul class="menu-izquierdo">
-    <li class="titulo-menu">Menú</li>
-    <li class="opcion-menu"><a href="#">Fecha</a></li>
-    <li class="opcion-menu"><a href="#">Horario</a></li>
-    <li class="opcion-menu"><a href="#">Documentación</a></li>
-    <li class="opcion-menu"><a href="#">RR.HH</a></li>
-    <li class="opcion-menu"><a href="#">Buzón de sugerencia</a></li>
-  </ul>
+<div class="container-fluid p-0">
+  <header class="bg-success text-white py-3 px-4 d-flex align-items-center shadow">
+    <h1 class="h4 m-0" >Te damos la bienvenida, usuario</h1>
+  </header>
+
+  <div class="d-flex">
+    <!-- Menú lateral -->
+    <nav class="menu-izquierdo">
+      <ul class="list-unstyled">
+        <li class="titulo-menu">Menú</li>
+        <li class="opcion-menu"><a routerLink="#">Fecha</a></li>
+        <li class="opcion-menu"><a routerLink="#">Horario</a></li>
+        <li class="opcion-menu"><a routerLink="#">Documentación</a></li>
+        <li class="opcion-menu"><a routerLink="#">RR.HH</a></li>
+        <li class="opcion-menu"><a routerLink="#">Buzón de sugerencia</a></li>
+      </ul>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main class="contenido-principal flex-grow-1 d-flex justify-content-center align-items-center">
+      <div class="cuadro-transparente text-center">
+        <h2 class="mb-3">Información</h2>
+        <label class="form-label text-white">Campo de ejemplo</label>
+        <input type="text" class="form-control descripcion2 mb-3" placeholder="Escribe aquí">
+        <a href="#" class="text-info fw-bold text-decoration-underline">Más información</a>
+      </div>
+    </main>
+  </div>
+</div>

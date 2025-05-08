@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<body>
+
+<div class="hero">
+  <h1>Hazte colaborador</h1>
+  <p>Comienza a recibir el análisis de la coyuntura económica y política de primer nivel</p>
+</div>
+
+<div class="split">
+  <div class="left">
+    <img src="https://media.licdn.com/dms/image/v2/D4E22AQGK6DZ2uKYcYw/feedshare-shrink_800/feedshare-shrink_800/0/1695858408887?e=2147483647&v=beta&t=kjFbkztZS69CaL1s9abpjbNrPMXhmIVz6idKkHqLDuM" alt="Tablet con productos">
+  </div>
+  <div class="right">
+    <h2>¿Por qué elegirnos?</h2>
+    <ul>
+      <li>Gozar de un oportuno análisis de la coyuntura, al cual podrá acceder a través de nuestros diversos productos.</li>
+      <li>Obtener un servicio personalizado: nos adaptamos a las necesidades de cada cliente.</li>
+      <li>Mantenerse informado a través de un análisis técnico del más alto nivel.</li>
+      <li>Solucionar cualquier duda o consulta. Nuestro equipo está a su disposición vía
+        <span class="destacado">correo</span><span class="iconos-contacto"><i class="fas fa-envelope"></i></span>,
+        <span class="destacado">llamadas</span><span class="iconos-contacto"><i class="fas fa-phone"></i></span> y
+        <span class="destacado">WhatsApp</span><span class="iconos-contacto"><i class="fab fa-whatsapp"></i></span>.
+      </li>
+    </ul>
+  </div>
+</div>
+
+</body>
+
+<div class="contact-container" id="form_postu">
+  <div class="left">
+    <h2>Contáctanos</h2>
+    <p>
+      Escríbenos a través del siguiente formulario y nuestro equipo se pondrá en contacto o comunícate con
+      <strong style="color:#2e9d7f;">comercial.pe</strong> para agendar una reunión con
+      representantes del equipo del Sistema de Información.
+    </p>
+    <p><strong>¡Síguenos en nuestras redes!</strong></p>
+    <div class="social-icons">
+      <i class="fab fa-linkedin-in"></i>
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-facebook-f"></i>
+      <i class="fab fa-twitter"></i>
+      <i class="fab fa-whatsapp"></i>
+    </div>
+  </div>
+
+  <form (ngSubmit)="enviarFormulario()" #formularioContacto="ngForm" class="right" >
+    <div class="row">
+      <input type="text" name="nombre" [(ngModel)]="form.nombre" required placeholder="Nombre y Apellido">
+      <input type="text" name="celular" [(ngModel)]="form.celular" required placeholder="Número celular">
+    </div>
+    <input type="email" name="email" [(ngModel)]="form.email" required placeholder="E-mail">
+    <textarea name="mensaje" [(ngModel)]="form.mensaje" required placeholder="Mensaje"></textarea>
+    <button type="submit">ENVIAR</button>
+  </form>
+</div>
+
+<button (click)="mostrarPostulaciones()">
+  {{ mostrarLista ? 'Ocultar postulaciones' : 'Ver postulaciones' }}
+</button>
+
+<div *ngIf="mostrarLista && postulaciones.length > 0" class="postulaciones-lista">
+  <div *ngFor="let p of postulaciones" class="postulacion-card center">
+    <p><strong>Nombre:</strong> {{ p.nombre }}</p>
+    <p><strong>Email:</strong> {{ p.email }}</p>
+    <p><strong>Celular:</strong> {{ p.celular }}</p>
+    <p><strong>Mensaje:</strong> {{ p.mensaje }}</p>
+  </div>
+</div>
+
+<p *ngIf="mostrarLista && postulaciones.length === 0">
+  No hay postulaciones registradas aún.
+</p>

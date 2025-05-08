@@ -1,0 +1,48 @@
+.sobre-la-empresa-section {
+  font-family: 'Helvetica', sans-serif;
+  color: #333; /*color text*/
+}
+
+.bg-image-section {
+  background-image: url('https://www.agrogms.com/uploads_es/txtarticulofoto/cabecera-agrokasa.jpg'); /* fondo real */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay-text {
+  background: rgba(255, 255, 255, 0.25); /* fondo blanco translúcido */
+  backdrop-filter: blur(10px);            /* desenfoque para contraste */
+  -webkit-backdrop-filter: blur(6px);    /* soporte en Safari */
+  padding: 2rem;
+  border-radius: 1rem;
+  color: #000000;
+  max-width: 800px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.overlay-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.overlay-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.white-section {
+  background-color: white;
+}
+
+.icono-empresa {
+  width: 300px;
+  height: 300px;
+  border-radius: 30%;
+  padding: 20px;
+}
