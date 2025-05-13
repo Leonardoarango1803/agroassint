@@ -1,4 +1,9 @@
 package com.agroassint.Agroassint.Repositories;
 
-public class HistorialAsistenciasRepository {
+import com.agroassint.Agroassint.Models.HistorialAsistencias;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface HistorialAsistenciasRepository extends JpaRepository<HistorialAsistencias, Integer> {
 }

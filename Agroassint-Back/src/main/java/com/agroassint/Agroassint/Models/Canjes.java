@@ -10,14 +10,14 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Canje {
+public class Canjes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "id_empleado")
-    private Empleado empleado;
+    private Empleados empleado;
 
     @ManyToOne
     @JoinColumn(name = "id_producto")
@@ -25,4 +25,8 @@ public class Canje {
 
     private Integer puntosUsados;
     private LocalDate fechaCanje;
+
+    // Agregar estos campos si los necesitas
+    private String descripcion;  // Campo descripción
+    private String estado;       // Campo estado
 }

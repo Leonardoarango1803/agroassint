@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class HoraTrabajada {
+public class HorasTrabajadas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
