@@ -1,4 +1,9 @@
 package com.agroassint.Agroassint.Repositories;
 
-public class EmpleadosRepository {
+import com.agroassint.Agroassint.Models.Empleados;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface EmpleadosRepository extends JpaRepository<Empleados, Integer> {
 }

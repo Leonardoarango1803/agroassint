@@ -10,18 +10,18 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class DescuentoTardanza {
+public class DescuentosTardanza {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "id_empleado")
-    private Empleado empleado;
+    private Empleados empleado;
 
     private LocalDate fecha;
     private Double montoDescontado;
 
-    @Column(length = 255)
+    @Column
     private String motivo = "Descuento por 3 tardanzas acumuladas";
 }

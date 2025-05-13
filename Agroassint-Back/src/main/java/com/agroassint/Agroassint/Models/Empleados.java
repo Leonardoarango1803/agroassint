@@ -10,7 +10,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Empleado {
+public class Empleados {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -33,8 +33,8 @@ public class Empleado {
 
     private String categoria;
 
-    @Column(precision = 10, scale = 2)
-    private Double salarioBase;
+    @Column(nullable = false)
+    private Double salarioBase; // Se eliminó precision y scale
 
     @ManyToOne
     @JoinColumn(name = "id_area")

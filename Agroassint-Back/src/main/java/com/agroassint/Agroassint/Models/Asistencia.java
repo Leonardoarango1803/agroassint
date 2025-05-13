@@ -18,7 +18,7 @@ public class Asistencia {
 
     @ManyToOne
     @JoinColumn(name = "id_empleado")
-    private Empleado empleado;
+    private Empleados empleado;
 
     private LocalDate fecha;
     private LocalTime horaEntrada;
