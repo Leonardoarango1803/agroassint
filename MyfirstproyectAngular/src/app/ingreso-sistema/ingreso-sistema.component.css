@@ -47,3 +47,11 @@
   background-color: rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 5px #00ffc8;
 }
+
+.cuadro-transparente { /*Cuadro de informacion*/
+  width: 90%;       /* O 600px, por ejemplo */
+  height: 400px;    /* Ajusta según lo necesario */
+  background-color: rgba(0, 0, 0, 0.11); /* ejemplo de transparencia */
+  padding: 20px;
+  border-radius: 10px;
+}

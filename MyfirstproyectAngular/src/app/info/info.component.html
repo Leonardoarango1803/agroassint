@@ -6,7 +6,7 @@
         <img [src]="producto.imagen" class="card-img-top" [alt]="producto.nombre">
         <div class="card-body text-center">
           <p class="card-text">{{ producto.nombre }} ({{ producto.nombreCientifico }})</p>
-          <button class="btn btn-primary shadow" (click)="(producto)">Descripción</button>
+          <button class="btn btn-primary shadow" (click)="mostrarDescripcion(producto)">Descripción</button>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 <div class="container-fluid p-0">
   <header class="bg-success text-white py-3 px-4 d-flex align-items-center shadow">
-    <h1 class="h4 m-0" >Te damos la bienvenida, usuario</h1>
+    <h1 class="h4 m-0" >Te damos la bienvenida, $usuario$</h1>
   </header>
 
   <div class="d-flex">
@@ -8,22 +8,29 @@
     <nav class="menu-izquierdo">
       <ul class="list-unstyled">
         <li class="titulo-menu">Menú</li>
-        <li class="opcion-menu"><a routerLink="#">Fecha</a></li>
+        <li class="opcion-menu"><a routerLink="#">Informacion Personal</a></li>
         <li class="opcion-menu"><a routerLink="#">Horario</a></li>
-        <li class="opcion-menu"><a routerLink="#">Documentación</a></li>
-        <li class="opcion-menu"><a routerLink="#">RR.HH</a></li>
-        <li class="opcion-menu"><a routerLink="#">Buzón de sugerencia</a></li>
+        <li class="opcion-menu"><a routerLink="#">Certificados</a></li>
+        <li class="opcion-menu"><a routerLink="#">Zonas Laborales</a></li>
+        <li class="opcion-menu"><a routerLink="#">Solicitudes Laborales</a></li>
       </ul>
     </nav>
 
     <!-- Contenido principal -->
-    <main class="contenido-principal flex-grow-1 d-flex justify-content-center align-items-center">
+    <main class="cuadro-transparente  flex-grow-1 d-flex justify-content-center align-items-center">
       <div class="cuadro-transparente text-center">
-        <h2 class="mb-3">Información</h2>
-        <label class="form-label text-white">Campo de ejemplo</label>
-        <input type="text" class="form-control descripcion2 mb-3" placeholder="Escribe aquí">
-        <a href="#" class="text-info fw-bold text-decoration-underline">Más información</a>
+        <h2 class="mb-3">Información Personal</h2>
+
+        <p class="text-black"><strong>Nombres:</strong> {{ persona.nombres }}</p>
+        <p class="text-black"><strong>Apellidos:</strong> {{ persona.apellidos }}</p>
+        <p class="text-black"><strong>Dirección:</strong> {{ persona.direccion }}</p>
+        <p class="text-black"><strong>Teléfono:</strong> {{ persona.telefono }}</p>
+        <p class="text-black"><strong>Zona laboral:</strong> {{ persona.zonaLaboral }}</p>
+        <p class="text-black"><strong>Supervisor:</strong> {{ persona.supervisor }}</p>
+
+
       </div>
     </main>
+
   </div>
 </div>

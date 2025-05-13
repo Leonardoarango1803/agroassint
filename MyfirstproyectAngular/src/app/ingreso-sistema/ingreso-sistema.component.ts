@@ -8,5 +8,12 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './ingreso-sistema.component.css'
 })
 export class IngresoSistemaComponent {
-
+  persona = {
+    nombres: 'Juan Carlos',
+    apellidos: 'Pérez Gómez',
+    direccion: 'Av. Los Álamos 123, Lima',
+    telefono: '987654321',
+    zonaLaboral: 'Campo Nr° 3',
+    supervisor: 'Ana Torres'
+  };
 }
