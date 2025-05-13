@@ -1,0 +1,10 @@
+/* Estilos globales para el layout */
+.content-wrapper {
+  padding-top: 130px; /* Ajusta según la altura real de tu header */
+  min-height: calc(100vh - 130px);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}

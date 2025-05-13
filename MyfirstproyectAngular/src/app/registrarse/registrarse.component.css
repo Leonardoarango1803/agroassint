@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  header {
+    background-color: green;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  .background-section {
+    background-image: url('https://www.esan.edu.pe/images/blog/2017/08/09/1500x844-agroexportaciones.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cuadro-transparente {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 2rem;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 0 20px rgba(0, 128, 0, 0.4);
+    animation: slideIn 1s ease forwards;
+  }
+  
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .btn-enviar {
+    background-color: green;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    transition: transform 0.3s;
+  }
+  
+  .btn-enviar:hover {
+    transform: scale(1.05);
+    background-color: darkgreen;
+  }
+  
+  .mensaje-deslizante {
+    animation: deslizar 3s ease-in-out infinite alternate;
+    font-weight: bold;
+    color: green;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  @keyframes deslizar {
+    0% { transform: translateX(0); opacity: 0.7; }
+    100% { transform: translateX(20px); opacity: 1; }
+  }

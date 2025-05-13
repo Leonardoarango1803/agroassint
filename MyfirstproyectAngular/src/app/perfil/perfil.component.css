@@ -1,0 +1,56 @@
+body {
+    background: linear-gradient(to right, #0366fa, #2e5ed1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #270f0f;
+  }
+  
+  .card {
+    background-color: rgba(104, 104, 104, 0.096);
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    color: #7e4c4c;
+    backdrop-filter: blur(6px);
+    border: none;
+  }
+  
+  .card-title,
+  .card-subtitle {
+    color: #150985;
+  }
+  
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #00bfff;
+  }
+  
+  .section-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #4da080;
+  }
+  
+  .btn-custom {
+    background-color: #00bfff;
+    color: #156e5b;
+    border-radius: 30px;
+    padding: 8px 20px;
+    border: none;
+    transition: 0.3s;
+  }
+  
+  .btn-custom:hover {
+    background-color: #009cd8;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 1s ease-in;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }

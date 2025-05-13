@@ -1,0 +1,32 @@
+
+.fixed-header {
+  position: fixed;/*fijar header arriba*/
+  top: 0;
+  width: 100%;
+  z-index: 1030;
+}
+/*ancho tel logo text*/
+.brand-text {
+  font-weight: 750;
+  font-size: 1.8rem;
+  letter-spacing: 1.5px;
+}
+
+.nav-link {
+  font-size: 1.1rem;
+  margin: 0 0.8rem;
+  transition: all 0.3s ease;
+}
+/*color encima del cursor*/
+.nav-link:hover {
+  color: #ffc107 !important;
+  transform: scale(1.05);
+}
+/*barra arriba*/
+.bg-dark-blue {
+  background-color: #1444a4;
+}
+/*barra abajo*/
+.bg-primary {
+  background-color: #1562ff !important;
+}

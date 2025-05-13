@@ -1,0 +1,49 @@
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+</head>
+<body>
+
+<div class="main-container">
+  <div class="background-animation"></div>
+  <div class="bienvenido-trabajador">Bienvenido trabajador<br>de la empresa Agroindustrial</div>
+  <div class="cuadro-transparente">
+    <h1>Iniciar Sesión</h1>
+    <form action="/submit" method="get">
+      <div class="modificacion">
+        <label for="usuario" class="descripcion">Colocar su usuario:</label>
+        <input type="text" id="usuario" class="descripcion2" name="username">
+      </div>
+      <div class="modificacion">
+        <label for="contraseña" class="descripcion">Colocar contraseña:</label>
+        <input type="password" id="contraseña" class="descripcion2" name="password">
+      </div>
+      <a href="sistema" class="btn btn-warning">Entrar</a>
+      <p style="margin-top: 15px;">
+        ¿No estás registrado?<br>
+        <a href="registro">Regístrate aquí</a>
+      </p>
+    </form>
+  </div>
+</div>
+
+<script>
+  // Animaciones GSAP
+  gsap.to(".cuadro-transparente", {
+    duration: 1.5,
+    opacity: 1,
+    y: -20,
+    ease: "power3.out",
+    delay: 0.5
+  });
+
+  gsap.to(".bienvenido-trabajador", {
+    duration: 1.8,
+    opacity: 1,
+    x: 20,
+    ease: "power2.out"
+  });
+</script>
+
+</body>

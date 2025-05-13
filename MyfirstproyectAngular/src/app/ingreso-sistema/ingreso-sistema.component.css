@@ -1,0 +1,49 @@
+.menu-izquierdo {
+  width: 220px;
+  min-height: 100vh;
+  background-color: rgba(74, 122, 172, 0.34);
+  padding: 20px 10px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.titulo-menu {
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.opcion-menu a {
+  display: block;
+  padding: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.2s;
+}
+
+.opcion-menu a:hover {
+  background-color: #dee2e6;
+}
+
+.cuadro-transparente {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 30px;
+  color: #000000;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  max-width: 400px;
+  width: 100%;
+}
+
+.descripcion2 {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  color: white;
+}
+
+.descripcion2:focus {
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 5px #00ffc8;
+}
