@@ -24,6 +24,7 @@
 
 .opcion-menu a:hover {
   background-color: #dee2e6;
+  cursor: pointer;
 }
 
 .cuadro-transparente {

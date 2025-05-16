@@ -37,7 +37,7 @@ export class IngresoComponent {
   login() {
     if (this.username === 'admin' && this.password === '1234') {
       localStorage.setItem('userLogged', 'true');
-      this.router.navigate(['/dashboard']); // O la ruta principal que tengas
+      this.router.navigate(['/sistema']);
     } else {
       alert('Usuario o contraseña incorrectos');
     }

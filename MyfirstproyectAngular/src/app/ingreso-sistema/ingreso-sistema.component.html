@@ -1,36 +1,151 @@
 <div class="container-fluid p-0">
   <header class="bg-success text-white py-3 px-4 d-flex align-items-center shadow">
-    <h1 class="h4 m-0" >Te damos la bienvenida, $usuario$</h1>
+    <h1 class="h4 m-0">Te damos la bienvenida, {{ persona.nombres }}</h1>
   </header>
 
   <div class="d-flex">
     <!-- Menú lateral -->
-    <nav class="menu-izquierdo">
+    <nav class="menu-izquierdo bg-light p-3 border-end" style="min-width: 200px;">
       <ul class="list-unstyled">
-        <li class="titulo-menu">Menú</li>
-        <li class="opcion-menu"><a routerLink="#">Informacion Personal</a></li>
-        <li class="opcion-menu"><a routerLink="#">Horario</a></li>
-        <li class="opcion-menu"><a routerLink="#">Certificados</a></li>
-        <li class="opcion-menu"><a routerLink="#">Historial de Asistencias</a></li>
-        <li class="opcion-menu"><a routerLink="#">Solicitudes Laborales</a></li>
+        <li class="titulo-menu fw-bold mb-2">Menú</li>
+        <li class="opcion-menu mb-2">
+          <a  (click)="cambiarSeccion('perfil')" [class.fw-bold]="seccionActiva === 'perfil'">Perfil</a>
+        </li>
+        <li class="opcion-menu mb-2">
+          <a  (click)="cambiarSeccion('horario')" [class.fw-bold]="seccionActiva === 'horario'">Horario</a>
+        </li>
+        <li class="opcion-menu mb-2">
+          <a  (click)="cambiarSeccion('certificados')" [class.fw-bold]="seccionActiva === 'certificados'">Certificados</a>
+        </li>
+        <li class="opcion-menu mb-2">
+          <a  (click)="cambiarSeccion('asistencias')" [class.fw-bold]="seccionActiva === 'asistencias'">Historial de Asistencias</a>
+        </li>
+        <li class="opcion-menu mb-2">
+          <a  (click)="cambiarSeccion('solicitudes')" [class.fw-bold]="seccionActiva === 'solicitudes'">Solicitudes Laborales</a>
+        </li>
       </ul>
     </nav>
 
-    <!-- Contenido principal -->
-    <main class="cuadro-transparente  flex-grow-1 d-flex justify-content-center align-items-center">
-      <div class="cuadro-transparente text-center">
-        <h2 class="mb-3">Información Personal</h2>
+    <!-- Contenido dinámico -->
+    <main class="container py-4 flex-grow-1">
 
-        <p class="text-black"><strong>Nombres:</strong> {{ persona.nombres }}</p>
-        <p class="text-black"><strong>Apellidos:</strong> {{ persona.apellidos }}</p>
-        <p class="text-black"><strong>Dirección:</strong> {{ persona.direccion }}</p>
-        <p class="text-black"><strong>Teléfono:</strong> {{ persona.telefono }}</p>
-        <p class="text-black"><strong>Zona laboral:</strong> {{ persona.zonaLaboral }}</p>
-        <p class="text-black"><strong>Supervisor:</strong> {{ persona.supervisor }}</p>
-
-
+      <!-- PERFIL -->
+      <div *ngIf="seccionActiva === 'perfil'" class="card shadow-lg">
+        <div class="card-body">
+          <div class="d-flex flex-column flex-md-row align-items-center">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqVg_URh9Mvrm3NYaTlCUyiM7r382ohELc1g&s" class="rounded-circle mb-3 mb-md-0 me-md-4" alt="Foto de perfil" style="width: 120px; height: 120px; object-fit: cover;">
+            <div class="w-100">
+              <h3 class="mb-4 text-center text-md-start">Información Personal</h3>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">Nombres</label>
+                  <input type="text" class="form-control" [(ngModel)]="persona.nombres" name="nombres">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Apellidos</label>
+                  <input type="text" class="form-control" [(ngModel)]="persona.apellidos" name="apellidos">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Dirección</label>
+                  <input type="text" class="form-control" [(ngModel)]="persona.direccion" name="direccion">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Teléfono</label>
+                  <input type="text" class="form-control" [(ngModel)]="persona.telefono" name="telefono">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Zona Laboral</label>
+                  <input type="text" disabled class="form-control" [(ngModel)]="persona.zonaLaboral" name="zonaLaboral">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Supervisor</label>
+                  <input type="text" disabled class="form-control" [(ngModel)]="persona.supervisor" name="supervisor">
+                </div>
+              </div>
+              <div class="text-end mt-4">
+                <button class="btn btn-success px-4" (click)="actualizarPerfil()">Actualizar</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </main>
 
+      <!-- HORARIO -->
+      <div *ngIf="seccionActiva === 'horario'" class="card shadow-lg">
+        <div class="card-body text-center">
+          <h2>Mi Horario Semanal</h2>
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover mt-3">
+              <thead class="table-success">
+              <tr>
+                <th>Día</th>
+                <th>Hora de Entrada</th>
+                <th>Hora de Salida</th>
+                <th>Turno</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let dia of horarioSemanal">
+                <td>{{ dia.dia }}</td>
+                <td>{{ dia.entrada }}</td>
+                <td>{{ dia.salida }}</td>
+                <td>{{ dia.turno }}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- CERTIFICADOS -->
+      <div *ngIf="seccionActiva === 'certificados'" class="card shadow-lg">
+        <div class="card-body">
+          <h2>Certificados</h2>
+          <p>Podras generar tus  certificados aquí.</p>
+        </div>
+      </div>
+
+      <!-- ASISTENCIAS -->
+      <div *ngIf="seccionActiva === 'asistencias'" class="card shadow-lg">
+
+        <div class="card-body">
+          <h2 class="card-body text-center">Mi Historial de Asistencias</h2>
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered mt-3">
+            <thead class="table-success">
+            <tr>
+              <th>Fecha</th>
+              <th>Hora de Entrada</th>
+              <th>Hora de Salida</th>
+              <th>Estado</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let registro of historialAsistencia">
+              <td>{{ registro.fecha }}</td>
+              <td>{{ registro.entrada }}</td>
+              <td>{{ registro.salida }}</td>
+              <td>
+            <span [ngClass]="{
+              'text-success': registro.estado === 'Asistió',
+              'text-warning': registro.estado === 'Tardanza',
+              'text-danger': registro.estado === 'Falta'
+            }">{{ registro.estado }}</span>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        </div></div>
+
+      <!-- SOLICITUDES -->
+      <div *ngIf="seccionActiva === 'solicitudes'" class="card shadow-lg">
+        <div class="card-body">
+          <h2>Solicitudes Laborales</h2>
+          <p>Aqui podras Generar Contenido de solicitudes aquí.</p>
+        </div>
+      </div>
+
+    </main>
   </div>
 </div>

@@ -10,19 +10,21 @@
   <div class="bienvenido-trabajador">Bienvenido trabajador<br>de la empresa Agroindustrial</div>
   <div class="cuadro-transparente">
     <h1>Iniciar Sesión</h1>
-    <form action="/submit" method="get">
+    <form (ngSubmit)="login()" #loginForm="ngForm">
       <div class="modificacion">
         <label for="usuario" class="descripcion">Colocar su usuario:</label>
-        <input type="text" id="usuario" class="descripcion2" name="username">
+        <input type="text" id="usuario" class="descripcion2" name="username" [(ngModel)]="username" required>
       </div>
       <div class="modificacion">
         <label for="contraseña" class="descripcion">Colocar contraseña:</label>
-        <input type="password" id="contraseña" class="descripcion2" name="password">
+        <input type="password" id="contraseña" class="descripcion2" name="password" [(ngModel)]="password" required>
       </div>
-      <a href="sistema" class="btn btn-warning">Entrar</a>
+
+      <button type="submit" class="btn btn-warning">Entrar</button>
+
       <p style="margin-top: 15px;">
         ¿No estás registrado?<br>
-        <a href="registro">Regístrate aquí</a>
+        <a routerLink="/registro">Regístrate aquí</a>
       </p>
     </form>
   </div>
