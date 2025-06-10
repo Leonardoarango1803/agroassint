@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
-import { gsap} from 'gsap';
+import { Component, OnInit } from '@angular/core';
+import { gsap } from 'gsap';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+
 @Component({
   selector: 'app-ingreso',
   imports: [FormsModule],
@@ -9,9 +11,8 @@ import { Router } from '@angular/router';
   standalone: true,
   styleUrl: './ingreso.component.css'
 })
-export class IngresoComponent {
+export class IngresoComponent implements OnInit {
   ngOnInit(): void {
-    // Animación del cuadro transparente
     gsap.to(".cuadro-transparente", {
       duration: 1.5,
       opacity: 1,
@@ -20,7 +21,6 @@ export class IngresoComponent {
       delay: 0.5
     });
 
-    // Animación de bienvenida
     gsap.to(".bienvenido-trabajador", {
       duration: 1.8,
       opacity: 1,
@@ -29,17 +29,30 @@ export class IngresoComponent {
     });
   }
 
-  username = '';
-  password = '';
 
-  constructor(private router: Router) {}
+  username = '';  // OK en Angular
+  password = '';
+  error = '';
+
+  constructor(private authService: AuthService, private router: Router) {}
 
   login() {
-    if (this.username === 'admin' && this.password === '1234') {
-      localStorage.setItem('userLogged', 'true');
-      this.router.navigate(['/sistema']);
-    } else {
-      alert('Usuario o contraseña incorrectos');
-    }
+    const datos = {
+      usuario: this.username,
+      contraseña: this.password
+    };
+
+    this.authService.login(datos).subscribe({
+      next: (data) => {
+        this.authService.guardarUsuarioEnSesion(data);
+        this.router.navigate(['/sistema']).then(() => {
+    window.location.reload();  // Refresca la página después de redirigir
+  });
+      },
+      error: () => {
+        this.error = 'Usuario o contraseña incorrectos';
+        alert('Usuario o contraseña incorrectos');
+      }
+    });
   }
 }

@@ -42,6 +42,14 @@ export class InfoComponent {
       imagenDetalle: 'https://www.webconsultas.com/sites/default/files/styles/wch_image_schema/public/media/0d/temas/arandanos.jpg',
       descripcion: 'El cacao es el fruto del árbol Theobroma cacao, utilizado para hacer chocolate...',
       presentaciones: ['Cacao en grano', 'Cacao en polvo']
+    },
+    {
+      nombre: 'Arándano azul',
+      nombreCientifico: 'Vaccinium corymbosum',
+      imagen: 'https://www.webconsultas.com/sites/default/files/styles/wch_image_schema/public/media/0d/temas/arandanos.jpg',
+      imagenDetalle: 'https://www.webconsultas.com/sites/default/files/styles/wch_image_schema/public/media/0d/temas/arandanos.jpg',
+      descripcion: 'El cacao es el fruto del árbol Theobroma cacao, utilizado para hacer chocolate...',
+      presentaciones: ['Cacao en grano', 'Cacao en polvo']
     }
 
   ];
