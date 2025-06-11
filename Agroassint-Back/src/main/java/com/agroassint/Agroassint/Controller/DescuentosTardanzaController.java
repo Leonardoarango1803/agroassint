@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/descuentos-tardanza")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
+
 public class DescuentosTardanzaController {
 
     private final DescuentosTardanzaRepository descuentosTardanzaRepository;

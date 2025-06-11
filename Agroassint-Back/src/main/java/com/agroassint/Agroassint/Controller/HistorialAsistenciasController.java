@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/historial-asistencias")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
+
 public class HistorialAsistenciasController {
 
     private final HistorialAsistenciasRepository historialAsistenciasRepository;

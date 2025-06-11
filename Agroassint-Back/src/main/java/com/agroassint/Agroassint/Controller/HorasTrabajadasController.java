@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/horas-trabajadas")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
+
 public class HorasTrabajadasController {
 
     private final HorasTrabajadasRepository horasTrabajadasRepository;

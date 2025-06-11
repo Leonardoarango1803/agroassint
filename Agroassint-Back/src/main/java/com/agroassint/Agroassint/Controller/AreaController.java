@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/areas")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
+
 public class AreaController {
 
     private final AreaRepository areaRepository;

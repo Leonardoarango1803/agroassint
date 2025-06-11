@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/asistencias")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
+
 public class AsistenciaController {
 
     private final AsistenciaRepository asistenciaRepository;
