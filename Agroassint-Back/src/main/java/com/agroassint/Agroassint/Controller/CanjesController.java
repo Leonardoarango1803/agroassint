@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/canjes")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
+
 public class CanjesController {
 
     private final CanjesRepository canjesRepository;
