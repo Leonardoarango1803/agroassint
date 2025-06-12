@@ -1,4 +1,6 @@
+
 <div class="container-fluid p-0">
+
   <header class="bg-success text-white py-3 px-4 d-flex align-items-center shadow">
     <h1 class="h4 m-0 text-center">Te damos la bienvenida, {{ persona.nombres }} {{ persona.apellidos }}</h1>
   </header>
@@ -96,6 +98,7 @@
               </tr>
               </tbody>
             </table>
+            <button (click)="generatePDF()">Descargar horario</button>
           </div>
         </div>
       </div>

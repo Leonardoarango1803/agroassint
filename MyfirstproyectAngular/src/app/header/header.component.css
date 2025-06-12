@@ -1,4 +1,3 @@
-
 .fixed-header {
   position: fixed;/*fijar header arriba*/
   top: 0;
@@ -29,4 +28,7 @@
 /*barra abajo*/
 .bg-primary {
   background-color: #1562ff !important;
+}
+.mi-boton {
+  cursor: pointer;
 }

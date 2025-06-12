@@ -3,7 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router'; // 
 import { BrowserModule } from '@angular/platform-browser';
-
+import { jsPDF } from 'jspdf';
+import autoTable from 'jspdf-autotable';
 @Component({
   selector: 'app-ingreso-sistema',
   standalone: true,
@@ -11,11 +12,14 @@ import { BrowserModule } from '@angular/platform-browser';
   templateUrl: './ingreso-sistema.component.html',
   styleUrl: './ingreso-sistema.component.css'
 })
+
+
 export class IngresoSistemaComponent implements OnInit{
 
   constructor(private router: Router) {}
   /*Simulados personales del back*/
   seccionActiva: string = 'perfil';
+  
 
   persona: any = {
     nombres: '',
@@ -27,6 +31,8 @@ export class IngresoSistemaComponent implements OnInit{
   };
 
   ngOnInit(): void {
+    
+
   const usuarioString = localStorage.getItem("usuario");
 
   if (usuarioString) {
@@ -59,6 +65,22 @@ export class IngresoSistemaComponent implements OnInit{
     { dia: 'Sábado', entrada: '09:00', salida: '13:00', turno: 'Medio día' },
     { dia: 'Domingo', entrada: '-', salida: '-', turno: 'Descanso' }
   ];
+
+  generatePDF() {
+    const doc = new jsPDF();
+    doc.setFontSize(16);
+    doc.text('Horario Semanal', 70, 10);
+
+    autoTable(doc, {
+      startY: 20,
+      head: [['Día', 'Entrada', 'Salida', 'Turno']],
+      body: this.horarioSemanal.map(item => [
+        item.dia, item.entrada, item.salida, item.turno
+      ])
+    });
+
+    doc.save('HorarioSemanal.pdf');
+  }
 
   actualizarPerfil() {
     console.log('Datos actualizados:', this.persona);

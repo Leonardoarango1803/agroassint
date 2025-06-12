@@ -55,4 +55,7 @@ export class IngresoComponent implements OnInit {
       }
     });
   }
+  contrasena(){
+    alert('Contacta con Administracion en el area de Recursos Humanos');
+  }
 }

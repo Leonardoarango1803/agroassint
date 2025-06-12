@@ -18,6 +18,16 @@ export class HeaderComponent implements OnInit{
 ngOnInit(): void {
   this.isLoggedIn = localStorage.getItem('userLogged') === 'true';
 }
+
+irAPortalEmpleado() {
+  const isLogged = localStorage.getItem('userLogged') === 'true';
+  if (isLogged) {
+    this.router.navigate(['/sistema']);
+  } else {
+    this.router.navigate(['/ingreso']);
+  }
+}
+
 cerrarSesion() {
   localStorage.clear();        // Borra todo el localStorage
   sessionStorage.clear();      // Borra todo el sessionStorage
