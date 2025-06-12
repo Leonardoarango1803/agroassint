@@ -19,7 +19,7 @@ export class IngresoSistemaComponent implements OnInit{
   constructor(private router: Router) {}
   /*Simulados personales del back*/
   seccionActiva: string = 'perfil';
-  
+  doc: jsPDF | null = null;
 
   persona: any = {
     nombres: '',
@@ -27,7 +27,9 @@ export class IngresoSistemaComponent implements OnInit{
     direccion: '',
     telefono: '',
     zonaLaboral: '',
-    supervisor: ''
+    supervisor: '',
+    sueldo:'',
+    fechaingreso:'',
   };
 
   ngOnInit(): void {
@@ -43,7 +45,9 @@ export class IngresoSistemaComponent implements OnInit{
       direccion: usuario.empleado.direccion,
       telefono: usuario.empleado.telefono,
       zonaLaboral: usuario.empleado.area.nombre,
-      supervisor: '' // Asigna según tu lógica
+      sueldo: usuario.empleado.salarioBase,
+      fechaingreso: usuario.empleado.fechaIngreso,
+      supervisor: 'Administracion' // Asigna según tu lógica
     };
   }
 }
@@ -97,4 +101,94 @@ export class IngresoSistemaComponent implements OnInit{
   sessionStorage.clear();      // Borra todo el sessionStorage
   this.router.navigate(['/ingreso']); // Redirige al login o donde quieras
 }
+
+
+
+
+mostrarVistaPrevia: boolean = false;
+
+generarConstancia(): void {
+  this.doc = new jsPDF();
+
+  const texto = `
+                                          CONSTANCIA DE TRABAJO
+
+Se deja constancia que el(la) Sr(a). ${this.persona.nombres} ${this.persona.apellidos},
+con dirección en ${this.persona.direccion} y número telefónico ${this.persona.telefono},
+labora en nuestra empresa en el área de ${this.persona.zonaLaboral},
+con fecha de ingreso desde ${this.persona.fechaingreso},
+hasta la fecha.
+
+
+Durante este tiempo, ha cumplido con responsabilidad y eficiencia las funciones asignadas, mostrando
+una conducta intachable y compromiso con sus labores.
+
+
+
+
+La presente se expide a solicitud del interesado para los fines que estime convenientes.
+
+
+
+
+
+
+Atentamente,
+Empresa Agroka
+
+
+
+
+____________________
+Miguel Araujo Granda
+GERENTE RECURSOS HUMANOS
+
+
+
+
+
+
+
+
+
+
+Constacia generada por Agroassint Web
+  `;
+
+  this.doc.setFontSize(12);
+  this.doc.text(texto, 20, 30, { maxWidth: 170 });
+
+  // Cargar imagen de firma
+  const img = new Image();
+  img.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Firma_Christian_Vittori.svg/3280px-Firma_Christian_Vittori.svg.png';
+
+  img.onload = () => {
+    // Agrega imagen de firma al PDF
+    this.doc!.addImage(img, 'PNG', 20, 156, 40, 20); // posición x, y, ancho, alto
+
+    const blob = this.doc!.output('blob');
+    const url = URL.createObjectURL(blob);
+
+    this.mostrarVistaPrevia = true;
+
+    setTimeout(() => {
+      const visor: any = document.getElementById('visorPDF');
+      if (visor) {
+        visor.src = url;
+      }
+    }, 100);
+  };
 }
+
+cerrarVistaPrevia(): void {
+  this.mostrarVistaPrevia = false;
+}
+
+  descargarPDF(): void {
+    if (this.doc) {
+      this.doc.save('constancia-trabajo.pdf');
+    }
+  }
+}
+
+

@@ -44,23 +44,27 @@
         <div class="row g-3">
           <div class="col-md-6">
             <label class="form-label">Nombres</label>
-            <input type="text" class="form-control" [(ngModel)]="persona.nombres" name="nombres">
+            <input type="text" class="form-control" [(ngModel)]="persona.nombres" name="nombres"disabled>
           </div>
           <div class="col-md-6">
             <label class="form-label">Apellidos</label>
-            <input type="text" class="form-control" [(ngModel)]="persona.apellidos" name="apellidos">
+            <input type="text" class="form-control" [(ngModel)]="persona.apellidos" name="apellidos" disabled>
           </div>
           <div class="col-md-6">
             <label class="form-label">Dirección</label>
-            <input type="text" class="form-control" [(ngModel)]="persona.direccion" name="direccion">
+            <input type="text" class="form-control" [(ngModel)]="persona.direccion" name="direccion" disabled>
           </div>
           <div class="col-md-6">
             <label class="form-label">Teléfono</label>
-            <input type="text" class="form-control" [(ngModel)]="persona.telefono" name="telefono">
+            <input type="text" class="form-control" [(ngModel)]="persona.telefono" name="telefono" disabled>
           </div>
           <div class="col-md-6">
             <label class="form-label">Sector Laboral</label>
             <input type="text" class="form-control" [(ngModel)]="persona.zonaLaboral" name="zonaLaboral" disabled>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Salario Mensual</label>
+            <input type="text" class="form-control" [(ngModel)]="persona.sueldo" name="zonaLaboral" disabled>
           </div>
           <div class="col-md-6">
             <label class="form-label">Supervisor</label>
@@ -106,8 +110,20 @@
       <!-- CERTIFICADOS -->
       <div *ngIf="seccionActiva === 'certificados'" class="card shadow-lg">
         <div class="card-body">
-          <h2>Certificados</h2>
-          <p>Podras generar tus  certificados aquí.</p>
+          <h2 class="text-center">Certificados</h2>
+          <p>Genera tus  certificados aquí sin la necesidad de asistir al Recursos Humanos!</p>
+          <p>° Genera aqui tu constancia de trabajo.</p>
+          <button class="table-success" (click)="generarConstancia()">Ver Constancia</button>
+          <button class="table-success" (click)="descargarPDF()">Descargar Constancia</button>
+
+    <div *ngIf="mostrarVistaPrevia" style="position: relative; margin-top: 1rem;">
+      <button 
+         (click)="cerrarVistaPrevia()" 
+           style="position: absolute; right: 0; top: 0; background: red; color: white; border: none; padding: 4px 8px; cursor: pointer;">
+               X
+         </button>
+         <iframe id="visorPDF" width="100%" height="500px" style="border: 1px solid #ccc;"></iframe>
+        </div>
         </div>
       </div>
 
@@ -147,7 +163,7 @@
       <!-- SOLICITUDES -->
       <div *ngIf="seccionActiva === 'solicitudes'" class="card shadow-lg">
         <div class="card-body">
-          <h2>Solicitudes Laborales</h2>
+          <h2 class="text-center">Solicitudes Laborales</h2>
           <p>Aqui podras Generar Contenido de solicitudes aquí.</p>
           <p>° </p>
         </div>

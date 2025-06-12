@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; // 
-
+declare var bootstrap: any;
 @Component({
   selector: 'app-header',
   imports: [CommonModule,
@@ -27,7 +27,35 @@ irAPortalEmpleado() {
     this.router.navigate(['/ingreso']);
   }
 }
+ngAfterViewInit(): void {
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    const navCollapse = document.getElementById('navbarNav');
+    const menuToggleButton = document.getElementById('menuToggleButton');
 
+    // Cierra el menú al hacer clic en cualquier enlace
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (navCollapse?.classList.contains('show')) {
+          new bootstrap.Collapse(navCollapse).hide();
+        }
+      });
+    });
+   
+    // Alterna el menú al hacer clic en el botón hamburguesa
+    menuToggleButton?.addEventListener('click', () => {
+      if (navCollapse?.classList.contains('show')) {
+        new bootstrap.Collapse(navCollapse).hide();
+      } else {
+        new bootstrap.Collapse(navCollapse).show();
+      }
+    });
+  }
+ 
+  navbarOpen = false;
+
+toggleNavbar() {
+  this.navbarOpen = !this.navbarOpen;
+}
 cerrarSesion() {
   localStorage.clear();        // Borra todo el localStorage
   sessionStorage.clear();      // Borra todo el sessionStorage
