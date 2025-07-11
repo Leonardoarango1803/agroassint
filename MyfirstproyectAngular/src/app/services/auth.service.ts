@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8080/api/auth/login';
+  private apiUrl = 'https://agroassint.onrender.com/api/auth/login';
 
   constructor(private http: HttpClient) {}
 
