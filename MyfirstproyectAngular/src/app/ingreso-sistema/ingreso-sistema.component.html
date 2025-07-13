@@ -162,12 +162,71 @@
 
       <!-- SOLICITUDES -->
       <div *ngIf="seccionActiva === 'solicitudes'" class="card shadow-lg">
-        <div class="card-body">
-          <h2 class="text-center">Solicitudes Laborales</h2>
-          <p>Aqui podras Generar Contenido de solicitudes aquí.</p>
-          <p>° </p>
+  <div class="card-body">
+    <h2 class="text-center">Solicitudes Laborales</h2>
+
+    <div class="container mt-4">
+      <h3>Formulario de Solicitud</h3>
+
+      <form [formGroup]="formulario" (ngSubmit)="enviarSolicitud()">
+        <div class="form-group">
+          <label for="tipoDocumento">Tipo de Documento a solicitar</label>
+          <select class="form-control text-center" id="tipoDocumento" formControlName="tipoDocumento" required>
+            <option value="">-- Selecciona --</option>
+            <option *ngFor="let tipo of tiposDocumento" [value]="tipo">{{ tipo }}</option>
+          </select>
         </div>
-      </div>
+
+        <div class="form-group mt-3">
+          <label for="descripcion">Detella puntualmente tu solicitud</label>
+          <textarea
+            id="descripcion"
+            class="form-control text-center"
+            formControlName="descripcion"
+            rows="3"
+            placeholder="Escribe detalles sobre tu solicitud..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Solicitar</button>
+      </form>
+
+      <hr class="my-4">
+<h4>Mis Solicitudes</h4>
+
+<table class="table table-bordered table-striped mt-3 text-center" *ngIf="solicitudes.length > 0">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Tipo de Documento</th>
+      <th>Estado</th>
+      <th>Fecha</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let s of solicitudes; let i = index">
+    <td>{{ i + 1 }}</td>
+    <td >{{ s.tipo }}</td>
+    <td>
+  <button [ngClass]="{
+    'btn': true,
+    'btn-warning': s.estado === 'pendiente',
+    'btn-success': s.estado === 'aprobado',
+    'btn-danger': s.estado === 'rechazado'
+  }">
+  {{ s.estado | titlecase }}
+</button>
+</td>
+    <td>{{ s.fecha_solicitud | date: 'shortDate' }}</td>
+  </tr>
+</tbody>
+</table>
+
+<p *ngIf="solicitudes.length === 0">No tienes solicitudes registradas.</p>
+
+    </div>
+  </div>
+</div>
+
 
     </main>
   </div>
