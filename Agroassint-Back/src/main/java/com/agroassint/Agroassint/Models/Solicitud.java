@@ -1,5 +1,6 @@
 package com.agroassint.Agroassint.Models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
@@ -24,6 +25,7 @@ public class Solicitud {
     @Column(columnDefinition = "TEXT")
     private String descripcion;
 
+    @JsonProperty("fecha_solicitud")
     private LocalDate fechaSolicitud;
 
     @Enumerated(EnumType.STRING)

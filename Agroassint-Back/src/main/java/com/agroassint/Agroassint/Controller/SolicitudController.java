@@ -3,6 +3,7 @@ package com.agroassint.Agroassint.Controller;
 import com.agroassint.Agroassint.Models.Solicitud;
 import com.agroassint.Agroassint.Repositories.SolicitudesRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +19,11 @@ public class SolicitudController {
     @GetMapping
     public List<Solicitud> listar() {
         return solicitudRepository.findAll();
+    }
+
+    @GetMapping("/empleado/{idEmpleado}")
+    public List<Solicitud> listarPorEmpleado(@PathVariable Integer idEmpleado) {
+        return solicitudRepository.findByEmpleadoId(idEmpleado);
     }
 
     @PostMapping
